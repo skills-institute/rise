@@ -13,9 +13,9 @@ html[lang="en"]
     title
       = title
     = stylesheet_link_tag :application, media: "all"
-    = render 'javascript'
+    -#= render 'javascript'
     = csrf_meta_tags
-    = favicon_link_tag 'favicon.ico'
+    = favicon_link_tag '/assets/favicon.ico'
     - # Add gon here for gon use inside the compiled js before the page is fully loaded
     = Gon::Base.render_data
   body class="#{devise_controller? ? 'devise' : 'application'} #{body_class}"

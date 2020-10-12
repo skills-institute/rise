@@ -10,10 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200519182158) do
+ActiveRecord::Schema.define(version: 2020_05_19_182158) do
 
   # These are extensions that must be enabled in order to support this database
-  enable_extension "pg_stat_statements"
   enable_extension "plpgsql"
 
   create_table "affiliate_code_purchases", force: :cascade do |t|
@@ -164,7 +163,7 @@ ActiveRecord::Schema.define(version: 20200519182158) do
     t.text "description"
     t.string "keyframe_content_type"
     t.string "keyframe_file_name"
-    t.integer "keyframe_file_size"
+    t.bigint "keyframe_file_size"
     t.datetime "keyframe_updated_at"
     t.string "name"
     t.string "reps"
@@ -173,7 +172,7 @@ ActiveRecord::Schema.define(version: 20200519182158) do
     t.datetime "updated_at", null: false
     t.string "video_content_type"
     t.string "video_file_name"
-    t.integer "video_file_size"
+    t.bigint "video_file_size"
     t.datetime "video_updated_at"
     t.index ["deleted_at"], name: "index_exercises_on_deleted_at"
   end
@@ -206,7 +205,7 @@ ActiveRecord::Schema.define(version: 20200519182158) do
     t.datetime "deleted_at"
     t.string "keyframe_content_type"
     t.string "keyframe_file_name"
-    t.integer "keyframe_file_size"
+    t.bigint "keyframe_file_size"
     t.datetime "keyframe_updated_at"
     t.string "name"
     t.integer "position"
@@ -215,7 +214,7 @@ ActiveRecord::Schema.define(version: 20200519182158) do
     t.datetime "updated_at", null: false
     t.string "video_content_type"
     t.string "video_file_name"
-    t.integer "video_file_size"
+    t.bigint "video_file_size"
     t.datetime "video_updated_at"
     t.index ["deleted_at"], name: "index_phases_on_deleted_at"
     t.index ["pyramid_module_id"], name: "index_phases_on_pyramid_module_id"
@@ -230,7 +229,7 @@ ActiveRecord::Schema.define(version: 20200519182158) do
     t.string "icon_white"
     t.string "keyframe_content_type"
     t.string "keyframe_file_name"
-    t.integer "keyframe_file_size"
+    t.bigint "keyframe_file_size"
     t.datetime "keyframe_updated_at"
     t.integer "level"
     t.string "name"
@@ -240,7 +239,7 @@ ActiveRecord::Schema.define(version: 20200519182158) do
     t.datetime "updated_at", null: false
     t.string "video_content_type"
     t.string "video_file_name"
-    t.integer "video_file_size"
+    t.bigint "video_file_size"
     t.datetime "video_updated_at"
     t.index ["deleted_at"], name: "index_pyramid_modules_on_deleted_at"
   end

@@ -1,6 +1,6 @@
 module Admin
   class SnippetsController < Admin::ApplicationController
-    include DefaultSort
+    #include DefaultSort
 
     def edit
       super

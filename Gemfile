@@ -2,9 +2,10 @@
 source 'https://rubygems.org'
 
 ruby '2.6.5'
-# ruby-gemset=athletefit_backend
+# ruby-gemset=skills_institute
 
 gem 'autoprefixer-rails'
+gem 'mini_racer'
 
 gem 'flutie'
 gem 'honeybadger'

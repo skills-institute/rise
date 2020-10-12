@@ -1,6 +1,6 @@
 module Admin
   class AffiliateDiscountCodesController < Admin::ApplicationController
-    include DefaultSort
+    #include DefaultSort
     
     
     def index

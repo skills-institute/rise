@@ -1,5 +1,5 @@
 {
-  "name":"athletefit-backend",
+  "name":"skills-institute-backend",
   "scripts": {
     "test": "bin/rspec"
   },
