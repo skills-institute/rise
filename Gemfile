@@ -46,7 +46,7 @@ gem 'administrate-field-select_essential'
 
 gem 'validates_overlap', '~> 0.8.6'
 
-gem 'aws-sdk', '~> 2.9'
+gem 'aws-sdk', '~> 3'
 gem 'paperclip'
 gem 'paperclip-av-transcoder'
 
