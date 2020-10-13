@@ -1,7 +1,7 @@
 # rubocop:disable Metrics/LineLength
 source 'https://rubygems.org'
 
-ruby '2.5.8'
+ruby '2.5.1'
 # ruby-gemset=skills_institute_backend
 
 gem 'autoprefixer-rails'
