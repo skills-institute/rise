@@ -27,15 +27,15 @@ By default, it renders:
   <%= render "javascript" %>
 </head>
 <body>
-  <%#= render "icons" %>
+  <%= render "icons" %>
 
   <div class="app-container">
-    <%#= render "navigation" -%>
+    <%= render "navigation" -%>
 
     <main class="main-content" role="main">
-      <%#= content_for(:search) %>
-      <%#= render "flashes" -%>
-      <%#= yield %>
+      <%= content_for(:search) %>
+      <%= render "flashes" -%>
+      <%= yield %>
     </main>
   </div>
 
