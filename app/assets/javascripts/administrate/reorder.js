@@ -20,12 +20,12 @@ jQuery(function($) {
       ui.item.children('td').effect('highlight', {}, 1000);
     },
     update: function(event, ui) {
-      const all_row_ids = $(this).sortable('toArray', { attribute: 'data-table-row-id' });
-      const parent_model = $(this).closest('.main-content__body').attr('data-parent-model-name');
-      const parent_model_id = $(this).closest('table').attr('data-sortable-parent-model-id');
-      const sortable_model =  $(this).closest('table').attr('data-sortable-model');
-      const resource_model =  $(this).closest('table').attr('data-resource-model');
-      const url =             $(this).closest('table').attr('data-sortable-update-endpoint');
+      all_row_ids = $(this).sortable('toArray', { attribute: 'data-table-row-id' });
+      parent_model = $(this).closest('.main-content__body').attr('data-parent-model-name');
+      parent_model_id = $(this).closest('table').attr('data-sortable-parent-model-id');
+      sortable_model =  $(this).closest('table').attr('data-sortable-model');
+      resource_model =  $(this).closest('table').attr('data-resource-model');
+      url =             $(this).closest('table').attr('data-sortable-update-endpoint');
       $.ajax({
         url: url,
         method: 'PUT',
