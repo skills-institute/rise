@@ -21,6 +21,7 @@ dev_tables_to_seed =
 production_tables_to_seed =
   %w(
     admin_user
+    two_clubs_with_teams_and_coaches_and_players
   )
 
 test_tables_to_seed = %w()
