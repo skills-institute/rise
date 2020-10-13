@@ -1,10 +1,10 @@
-FactoryBot.define do
+FactoryGirl.define do
   factory :exercise do
-    #name "MyString"
-    #description "MyText"
-    #sets 1
-    #reps 1
-    #rest "MyString"
+    name "MyString"
+    description "MyText"
+    sets 1
+    reps 1
+    rest "MyString"
   end
 end
 

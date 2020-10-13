@@ -1,8 +1,8 @@
-FactoryBot.define do
+FactoryGirl.define do
   factory :phase_attempt do
-    #user nil
-    #phase nil
-    #count 1
+    user nil
+    phase nil
+    count 1
   end
 end
 

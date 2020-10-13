@@ -29,7 +29,7 @@ module AthletefitBackend
       g.stylesheets false
       g.test_framework :rspec
       g.view_specs false
-      #g.fixture_replacement :factory_bot, dir: 'spec/factories'
+      g.fixture_replacement :factory_girl, dir: 'spec/factories'
       g.template_engine :slim
     end
 

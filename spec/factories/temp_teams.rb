@@ -1,10 +1,10 @@
-FactoryBot.define do
+FactoryGirl.define do
   factory :temp_team do
-    #name "MyString"
-    #num_players 1
-    #coach_first_name "MyString"
-    #coach_last_name "MyString"
-    #coach_email "MyString"
+    name "MyString"
+    num_players 1
+    coach_first_name "MyString"
+    coach_last_name "MyString"
+    coach_email "MyString"
   end
 end
 

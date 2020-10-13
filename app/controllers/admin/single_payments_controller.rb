@@ -1,6 +1,7 @@
 module Admin
   class SinglePaymentsController < Admin::ApplicationController
-    #include DefaultSort
+    include DefaultSort
+    
     
   end
 end

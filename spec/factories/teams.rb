@@ -1,20 +1,22 @@
-FactoryBot.define do
+FactoryGirl.define do
   factory :team do
-    #name { Faker::Name.team_name }
-    #code { Faker::Crypto.unique.md5.downcase[1..6] }
-    #num_players 11
+    name { Faker::Name.team_name }
+    code { Faker::Crypto.unique.md5.downcase[1..6] }
+    num_players 11
 
-    #callback(:after_create) do |model|
-      #a_players = create_list(:user, 10, :player)
-      #model.players << a_players
+    callback(:after_create) do |model|
+      a_players = create_list(:user, 10, :player)
+      model.players << a_players
 
-      #a_coaches = create_list(:user, 2, :coach)
-      #model.coaches << a_coaches
+      a_coaches = create_list(:user, 2, :coach)
+      model.coaches << a_coaches
 
-      #model.subscriptions << model.club.subscriptions
+      model.subscriptions << model.club.subscriptions
 
-      #model.save(validate: false)
-    #end
+      # FIXME: (2017-06-29) jon => I forget why the association is invalid.
+      # Investigate.
+      model.save(validate: false)
+    end
   end
 end
 

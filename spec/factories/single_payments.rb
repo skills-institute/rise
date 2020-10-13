@@ -1,4 +1,4 @@
-FactoryBot.define do
+FactoryGirl.define do
   factory :single_payment do
     
   end

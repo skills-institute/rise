@@ -8,7 +8,7 @@ require File.expand_path('../../config/environment', __FILE__)
 
 require 'spec_helper'
 require 'rspec/rails'
-require 'factory_bot'
+require 'factory_girl'
 require 'capybara/rspec'
 require 'capybara/poltergeist'
 require 'shoulda/matchers'

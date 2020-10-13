@@ -1,6 +1,5 @@
 development: &default
   adapter: postgresql
-  #database: rise_backend
   database: skills_institute_backend_development
   encoding: utf8
   min_messages: warning

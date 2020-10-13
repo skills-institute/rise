@@ -1,4 +1,4 @@
-FactoryBot.define do
+FactoryGirl.define do
   factory :archieved_user_payment do
     
   end

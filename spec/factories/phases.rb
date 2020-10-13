@@ -1,7 +1,7 @@
-FactoryBot.define do
+FactoryGirl.define do
   factory :phase do
-    #name { Faker::Name.phase_name }
-    #pyramid_module
+    name { Faker::Name.phase_name }
+    pyramid_module
   end
 end
 

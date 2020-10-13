@@ -45,9 +45,8 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: "www.example.com" }
 
   config.active_job.queue_adapter = :inline
-  
-  #config.factory_bot.definition_file_paths = ["custom/factories"]
 end
 # NOTE: console can use create(:factory_name), or build(:factory_name) without
 # needing to use FactoryGirl.create(:factory_name).
+include FactoryGirl::Syntax::Methods
 

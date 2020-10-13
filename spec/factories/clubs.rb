@@ -1,25 +1,25 @@
-FactoryBot.define do
+FactoryGirl.define do
   factory :club do
-    #name                 { Faker::Name.club_name }
-    #address_city         { Faker::Address.city }
-    #address_line1        { Faker::Address.street_address }
-    #address_line2        { Faker::Address.secondary_address }
-    #address_state        { Faker::Address.state_abbr }
-    #address_zip          { Faker::Address.zip_code }
-    #contact_email        { Faker::Internet.email }
-    #contact_first_name   { Faker::Name.first_name }
-    #contact_last_name    { Faker::Name.last_name }
-    #contact_phone        { Faker::PhoneNumber.phone_number }
+    name                 { Faker::Name.club_name }
+    address_city         { Faker::Address.city }
+    address_line1        { Faker::Address.street_address }
+    address_line2        { Faker::Address.secondary_address }
+    address_state        { Faker::Address.state_abbr }
+    address_zip          { Faker::Address.zip_code }
+    contact_email        { Faker::Internet.email }
+    contact_first_name   { Faker::Name.first_name }
+    contact_last_name    { Faker::Name.last_name }
+    contact_phone        { Faker::PhoneNumber.phone_number }
 
-    #transient do
-      #subscription_count 1
-      #skip_subscription false
-    #end
+    transient do
+      subscription_count 1
+      skip_subscription false
+    end
 
-    #after(:create) do |club, evaluator|
-      #next if evaluator.skip_subscription
-      #create_list(:subscription, evaluator.try(:subscription_count) || 1, club: club)
-    #end
+    after(:create) do |club, evaluator|
+      next if evaluator.skip_subscription
+      create_list(:subscription, evaluator.try(:subscription_count) || 1, club: club)
+    end
   end
 end
 

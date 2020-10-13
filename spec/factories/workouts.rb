@@ -1,7 +1,7 @@
-FactoryBot.define do
+FactoryGirl.define do
   factory :workout do
-    #name { Faker::Name.workout_name }
-    #phase
+    name { Faker::Name.workout_name }
+    phase
   end
 end
 

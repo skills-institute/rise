@@ -1,6 +1,6 @@
 module Admin
   class PyramidModulesController < Admin::ApplicationController
-    #include DefaultSort
+    include DefaultSort
 
     def new
       pyramid_module = resource_class.new

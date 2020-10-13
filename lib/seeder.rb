@@ -17,7 +17,7 @@ module Seeder
     # Remove all users
     User.unscoped.find_each(&:really_destroy!)
 
-    # list user traits from factory_bot here
+    # list user traits from factory_girl here
     %w[admin].each do |name|
       create(:user, name.to_sym)
     end

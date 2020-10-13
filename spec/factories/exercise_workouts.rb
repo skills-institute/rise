@@ -1,7 +1,7 @@
-FactoryBot.define do
+FactoryGirl.define do
   factory :exercise_workout do
-    #exercise nil
-    #workout nil
+    exercise nil
+    workout nil
   end
 end
 

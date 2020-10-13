@@ -1,19 +1,18 @@
 # rubocop:disable Metrics/LineLength
 source 'https://rubygems.org'
 
-ruby '2.6.5'
-# ruby-gemset=skills_institute
+ruby '2.5.1'
+# ruby-gemset=skills_institute_backend
 
 gem 'autoprefixer-rails'
-gem 'mini_racer'
 
 gem 'flutie'
 gem 'honeybadger'
 gem 'jquery-rails'
-gem 'normalize-rails', '~> 4.0'
+gem 'normalize-rails', '~> 3.0.0'
 gem 'pg'
 gem 'rack-canonical-host'
-gem 'rails', '~> 5.2', '>= 5.2.4.4'
+gem 'rails', '~> 5.1.7'
 gem 'recipient_interceptor'
 # gem 'sass-rails', '~> 5.0'
 gem 'sassc-rails'
@@ -23,36 +22,31 @@ gem 'rollbar'
 gem 'sprockets', '>= 3.0.0'
 gem 'title'
 gem 'uglifier'
-#gem 'voyage'
+gem 'voyage'
 # gem 'webpacker', github: 'rails/webpacker'
 gem 'rack-cors', require: 'rack/cors'
 
 # Customizations
 gem 'font-awesome-rails'
-gem 'foundation-rails', '~> 6.6', '>= 6.6.2.0'
+gem 'foundation-rails', '~> 6.3.1'
 gem 'slim-rails'
-#gem 'bootsnap', require: false
+gem 'bootsnap', require: false
 gem 'trix'
 
 gem 'acts_as_list'
-#gem 'administrate', github: 'headwayio/administrate', branch: 'feature/custom_sorting_via_options'#, path: '/rails/headway/administrate_gems/administrate'
-gem 'administrate', '~> 0.14.0'
-gem 'administrate-field-carrierwave'
+gem 'administrate', github: 'headwayio/administrate', branch: 'feature/custom_sorting_via_options'#, path: '/rails/headway/administrate_gems/administrate'
+gem 'administrate-field-carrierwave', '~> 0.2.0'
 gem 'administrate-field-collection_select'
-gem 'administrate-field-enum'
-gem 'administrate-field-nested_has_many'
+gem 'administrate-field-enum', github: 'headwayio/administrate-field-enum'
+gem 'administrate-field-nested_has_many', github: 'headwayio/administrate-field-nested_has_many', branch: 'rails_5'
 gem 'administrate-field-paperclip'
 gem 'administrate-field-password'
 gem 'administrate-field-select_essential'
 # gem 'require_reloader', github: 'teohm/require_reloader' # Doesn't work well with the administrate dependent gems :/
 
-#gem 'administrate-field-enum', github: 'headwayio/administrate-field-enum'
-#gem 'administrate-field-nested_has_many', github: 'headwayio/administrate-field-nested_has_many', branch: 'rails_5'
-
-#gem 'validates_overlap', github: 'robinbortlik/validates_overlap'
 gem 'validates_overlap', '~> 0.8.6'
 
-gem 'aws-sdk', '~> 3'
+gem 'aws-sdk', '~> 2.9'
 gem 'paperclip'
 gem 'paperclip-av-transcoder'
 
@@ -69,7 +63,7 @@ gem 'canard', git: 'https://github.com/jondkinney/canard.git', branch: 'feature/
 gem 'cancancan' # authorization library
 gem 'devise'
 gem 'devise_invitable'
-gem 'jsonapi-utils', '~> 0.7.3'
+gem 'jsonapi-utils', '~> 0.6.0.beta'
 gem 'pretender' # impersonate users as an admin
 gem 'tiddle' # token based authentication
 
@@ -85,8 +79,7 @@ gem 'settingslogic' # yaml settings (project wide, non-editable), this is implem
 
 # User Uploads
 gem 'carrierwave'
-#gem 'carrier_wave_base64_uploader', git: 'https://github.com/headwayio/carrier_wave_base64_uploader'
-gem 'carrier_wave_base64_uploader'
+gem 'carrier_wave_base64_uploader', git: 'https://github.com/headwayio/carrier_wave_base64_uploader'
 gem 'fog'
 gem 'mini_magick'
 
@@ -124,7 +117,7 @@ group :development, :test do
   gem 'bullet'
   gem 'bundler-audit', '>= 0.5.0', require: false
   gem 'dotenv-rails'
-  gem 'rspec-rails', '~> 3.9'
+  gem 'rspec-rails', '~> 3.5'
 
   # Customizations
   gem 'airborne'
@@ -157,7 +150,7 @@ group :test do
 end
 
 group :development, :test, :staging do
-  gem 'factory_bot_rails'
+  gem 'factory_girl_rails'
   gem 'faker' # provides auto generated names for factories, can be customized
 end
 
@@ -167,7 +160,7 @@ group :staging, :production do
 end
 
 group :production do
-  gem 'analytics-ruby', '~> 2.2', '>= 2.2.2', require: 'segment/analytics'
+  gem 'analytics-ruby', '~> 2.2.2', require: 'segment/analytics'
   gem 'puma'
 end
 

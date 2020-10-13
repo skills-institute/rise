@@ -1,7 +1,7 @@
-FactoryBot.define do
+FactoryGirl.define do
   factory :enrollment do
-    #team nil
-    #subscription nil
+    team nil
+    subscription nil
   end
 end
 

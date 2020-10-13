@@ -53,9 +53,7 @@
     .left
       h3 Edit Account Details
     .right
-      -if current_user.avatar.thumb.nil?
-        = image_tag current_user.avatar.thumb, width: '75px'
-
+      = image_tag current_user.avatar.thumb, width: '75px'
     .clear
     = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
       = errors_for(resource)

@@ -1,8 +1,8 @@
-FactoryBot.define do
+FactoryGirl.define do
   factory :subscription do
-    #start_date { Date.today }
-    #end_date { 1.year.from_now }
-    #price '10'
+    start_date { Date.today }
+    end_date { 1.year.from_now }
+    price '10'
   end
 end
 

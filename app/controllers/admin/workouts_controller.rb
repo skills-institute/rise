@@ -1,6 +1,6 @@
 module Admin
   class WorkoutsController < Admin::ApplicationController
-    #include DefaultSort
+    include DefaultSort
 
     def create
       resource = resource_class.new(resource_params.except(:exercise))

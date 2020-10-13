@@ -1,7 +1,7 @@
-FactoryBot.define do
+FactoryGirl.define do
   factory :club_affiliation do
-    #user nil
-    #club nil
+    user nil
+    club nil
   end
 end
 
