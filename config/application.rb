@@ -16,7 +16,7 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module AthletefitBackend
+module SkillsInstituteBackend
   class Application < Rails::Application
     config.assets.quiet = true
 

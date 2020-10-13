@@ -70,7 +70,7 @@ RSpec.configure do |config|
     # launch like States, roles, etc.
     require_relative '../lib/seeder'
     require 'rake'
-    AthletefitBackend::Application.load_tasks
+    SkillsInstituteBackend::Application.load_tasks
     # Rake::Task['db:seed'].invoke
   end
 
