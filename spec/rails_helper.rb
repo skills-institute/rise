@@ -71,7 +71,7 @@ RSpec.configure do |config|
     require_relative '../lib/seeder'
     require 'rake'
     SkillsInstituteBackend::Application.load_tasks
-    # Rake::Task['db:seed'].invoke
+    Rake::Task['db:seed'].invoke
   end
 
   config.after(:each) do
