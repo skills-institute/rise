@@ -42,15 +42,19 @@ body {
 
 
 ul.team-list {
-  display: inline-block;
+  display: flex;
   border-bottom: 1px solid $light-gray;
 
   li {
-    float: left;
+    display: flex;
 
     @media screen and (min-width: 500px) {
-      padding: 25px 15px 25px 0;
-      height: 150px;
+      padding: 15px 15px 15px 0;
+    }
+
+    > * {
+      margin-top: auto;
+      margin-bottom: auto;
     }
 
     a {
@@ -59,20 +63,9 @@ ul.team-list {
 
     a.first-col{
       width: 100%;
-    }
-
-    span.valign-middle{
-      height: 100px;
-      display: table-cell;
-      vertical-align: middle;
+      display: block;
     }
   }
-}
-
-.coach-label{
-  height: 100px;
-  display: table-cell;
-  vertical-align: middle;
 }
 
 .coach-avatar {
@@ -82,39 +75,25 @@ ul.team-list {
   margin: 0px 5px;
 }
 
-.club-logo-container{
-  @media screen and (min-width: 500px) {
-    height: 100px;
-    width: inherit;
+.club-logo-container {
+  padding: 10px 0;
 
-    &:hover{
-      cursor: pointer;
-      background: $light-gray;
-      border-radius: 2px;
-    }
+  &:hover {
+    cursor: pointer;
+    background: $light-gray;
+    border-radius: 2px;
   }
 }
 
 
-.club-logo{
-  display: table-cell;
-  vertical-align: middle;
-
-  @media screen and (min-width: 500px) {
-    height: 100px;
-    padding: 20px;
-  }
-
-  img{
-    // height: 80px;
+.club-logo {
+  img {
     width: 60px;
     border-radius: 8px;
     margin-right: 20px;
   }
 
   @media screen and (max-width: 500px) {
-    height: 100px;
-
     img {
       display: none;
     }

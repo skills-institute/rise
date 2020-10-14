@@ -14,3 +14,26 @@
 h1 {
   font-size: 24px;
 }
+
+a {
+	color: #ce0e2d;
+
+	&:hover {
+		color: #90091f;
+	}
+}
+a:focus {
+	outline: 3px solid rgba(206, 14, 45, 0.6);
+}
+
+button, input[type="button"], input[type="reset"], input[type="submit"], .button {
+	background-color: #ce0e2d;
+
+	&:hover {
+		background-color: #90091f;
+	}
+
+	&:focus {
+		outline: 3px solid rgba(206, 14, 45, 0.6);
+	}
+}

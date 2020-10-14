@@ -1,4 +1,4 @@
-$single_payment_green: #92d050;
+$single_payment_color: #9b061e;
 
 .text-uppercase {
     text-transform: uppercase;
@@ -72,7 +72,7 @@ $single_payment_green: #92d050;
 }
 
 .green-label {
-    background-color: $single_payment_green;
+    background-color: $single_payment_color;
 }
 
 .badge-container {
@@ -134,7 +134,7 @@ $single_payment_green: #92d050;
     }
 
     .single-payment {
-        border: solid 2px $single_payment_green;
+        border: solid 2px #555;
         padding: 70px 12px 30px;
         position: relative;
         max-width: 320px;
@@ -164,7 +164,7 @@ $single_payment_green: #92d050;
             }
 
             &.price-discount {
-                color: $single_payment_green;
+                color: $single_payment_color;
             }
         }
 
@@ -183,7 +183,7 @@ $single_payment_green: #92d050;
             display: block;
 
             span {
-                background-color: $single_payment_green;
+                background-color: $single_payment_color;
                 font-size: 1.25em;
                 color: #fff;
                 padding: 4px 30px;
@@ -233,8 +233,8 @@ select.subheader {
     }
 
     input[type="submit"] {
-        background: $single_payment_green;
-        background-color: $single_payment_green;
+        background: $single_payment_color;
+        background-color: $single_payment_color;
         line-height: initial;
         height: auto;
     }
