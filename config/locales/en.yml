@@ -22,7 +22,7 @@ en:
         '%m/%d/%Y - %-l:%M %p'
 
   titles:
-    application: RISE - Dashboard
+    application: Skills Institute - Dashboard
 
   helpers:
     label:

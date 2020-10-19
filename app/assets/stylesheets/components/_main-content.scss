@@ -71,7 +71,7 @@ $single_payment_color: #9b061e;
     margin-bottom: 30px!important;
 }
 
-.green-label {
+.single-payment-label {
     background-color: $single_payment_color;
 }
 
@@ -141,8 +141,9 @@ $single_payment_color: #9b061e;
         margin-left: auto;
         margin-right: auto;
 
-        .green-label {
+        .single-payment-label {
             position: absolute;
+            color: #fff;
             top: 15px;
             left: 0;
             width: 100%;

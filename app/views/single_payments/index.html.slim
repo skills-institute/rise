@@ -14,7 +14,7 @@
       div.single-payment-container class=( (single_payment.name.downcase.include? "coach") ? "coach" : "")
         .single-payment
           - if single_payment.special_label != ""
-            .green-label #{single_payment.special_label}
+            .single-payment-label #{single_payment.special_label}
 
           - if @affiliateCode.nil? || @affiliateCode.discount == 0
             .price $#{@prices[single_payment.id]}
