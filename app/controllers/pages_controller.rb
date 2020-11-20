@@ -6,10 +6,19 @@ class PagesController < ApplicationController
 
   layout :layout_for_page
 
-  before_action :persist_flash
+  before_action :persist_flash, except: [:static_pages]
 
   def show
     redirect_to "/users/sign_up"
+  end
+
+  def static_pages
+    slug = params[:slug]
+    @static_page = StaticPage.where(slug: slug).first
+
+    if !@static_page
+      redirect_to "/"
+    end
   end
 
   private

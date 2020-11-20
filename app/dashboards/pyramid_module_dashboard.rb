@@ -36,6 +36,7 @@ class PyramidModuleDashboard < Administrate::BaseDashboard
     ),
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
+    is_homework: Field::Boolean,
     video: PaperclipVideoField,
     keyframe: Field::Paperclip.with_options(
       big_style: :medium,
@@ -80,6 +81,7 @@ class PyramidModuleDashboard < Administrate::BaseDashboard
     :tracks,
     :level,
     :prerequisites,
+    :is_homework,
     :icon_white,
     :icon_black,
     :keyframe,
@@ -97,6 +99,7 @@ class PyramidModuleDashboard < Administrate::BaseDashboard
     :tracks,
     :level,
     :prereq,
+    :is_homework,
     :icon_white,
     :icon_black,
     :keyframe,

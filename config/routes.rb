@@ -46,6 +46,7 @@ Rails.application.routes.draw do
     resources :subscriptions
     resources :temp_teams
     resources :snippets
+    resources :static_pages
 
     resources :users do
       member do
@@ -121,4 +122,6 @@ Rails.application.routes.draw do
 
     end
   end
+  
+  get '/:slug', to: 'pages#static_pages'
 end

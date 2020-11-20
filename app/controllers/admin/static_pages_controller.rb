@@ -1,11 +1,11 @@
 module Admin
-  class SnippetsController < Admin::ApplicationController
+  class StaticPagesController < Admin::ApplicationController
     include DefaultSort
 
     def edit
       super
     rescue ActiveRecord::RecordNotFound
-      redirect_to new_admin_snippet_path(name: params[:id], content: params[:content])
+      redirect_to new_admin_static_page_path(name: params[:id], content: params[:content])
     end
 
     def new

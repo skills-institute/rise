@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200519182158) do
+ActiveRecord::Schema.define(version: 20201120133658) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -227,6 +227,7 @@ ActiveRecord::Schema.define(version: 20200519182158) do
     t.integer "display_track"
     t.string "icon_black"
     t.string "icon_white"
+    t.boolean "is_homework"
     t.string "keyframe_content_type"
     t.string "keyframe_file_name"
     t.bigint "keyframe_file_size"
@@ -267,6 +268,15 @@ ActiveRecord::Schema.define(version: 20200519182158) do
     t.datetime "deleted_at"
     t.string "name"
     t.integer "position"
+    t.string "slug"
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "static_pages", force: :cascade do |t|
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "deleted_at"
+    t.string "name"
     t.string "slug"
     t.datetime "updated_at", null: false
   end
