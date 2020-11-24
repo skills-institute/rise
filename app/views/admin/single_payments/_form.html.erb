@@ -48,5 +48,13 @@ and renders all form fields for a resource's editable attributes.
 # If you know how to do it without JS, please modify it, otherwise PLEASE DON'T DELETE THIS JS LINE. THANK YOU!
 %>
 <script>
-  document.getElementById('pyramid_module').getElementsByClassName('field-unit__label')[0].children[0].innerHTML = 'Pyramid Modules';
+  let pyramidModuleLabel = document.querySelectorAll('#pyramid_module .field-unit__label label');
+  if (pyramidModuleLabel.length > 0) {
+    pyramidModuleLabel[0].innerHTML = 'Pyramid Modules';
+  } else {
+    pyramidModuleLabel = document.querySelectorAll('#pyramid_modules .field-unit__label label');
+    if (pyramidModuleLabel.length > 0) {
+      pyramidModuleLabel[0].innerHTML = 'Pyramid Modules';
+    }
+  }
 </script>
