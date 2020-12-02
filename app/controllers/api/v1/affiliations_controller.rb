@@ -26,7 +26,9 @@ module Api
             UnlockedPyramidModule.where(user_id: current_user.id).update(has_restriction: 0)
 
             unlock_pyramid_module_values = Array.new
-            pyramid_modules = PyramidModule.select("id,name").where(id: [3,5,7,8,9,10,11,12,13,15,16,17]).order(:id)
+            #pyramid_modules = PyramidModule.select("id,name").where(id: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]).order(:id)
+            # Requested by the client - for now unlock only 7 modules: Bottom 5 + the 2 Homework modules
+            pyramid_modules = PyramidModule.select("id,name").where(id: [1,2,3,4,6,9,12]).order(:id)
             today = Date.today
             pyramid_modules.each do |pyramid_module|
               if UnlockedPyramidModule.where(pyramid_module_id: pyramid_module.id).where(user_id: current_user.id).empty? 
