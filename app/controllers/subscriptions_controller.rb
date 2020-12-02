@@ -71,7 +71,7 @@ class SubscriptionsController < ApplicationController
 
     redirect_to edit_user_registration_path
   rescue => e
-    flash[:error] = "Sorry, something went wrong. Please forward these error details to info@risefutbol.com.<br><br>Error: #{e}".html_safe
+    flash[:error] = "Sorry, something went wrong. Please forward these error details to support@lilkickers.com.<br><br>Error: #{e}".html_safe
     redirect_to '/help'
   end
 end

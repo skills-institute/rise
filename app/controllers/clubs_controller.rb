@@ -7,7 +7,7 @@ class ClubsController < ApplicationController
     if @clubs.blank?
       flash[:notice] = %(
         Your account is not associated to a club. Please contact
-        <a href='mailto:info@risefutbol.com'>info@risefutbol.com</a> for
+        <a href='mailto:support@lilkickers.com'>support@lilkickers.com</a> for
         support.
       ).html_safe.squish # rubocop:disable Rails/OutputSafety
 

@@ -19,7 +19,9 @@ class UsersController < ApplicationController
 
 		render_text = ""
 
-	  pyramid_modules = PyramidModule.select("id,name").where(id: [3,5,7,8,9,10,11,12,13,15,16,17]).order(:id)
+    #pyramid_modules = PyramidModule.select("id,name").where(id: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]).order(:id)
+    # Requested by the client - for now unlock only 7 modules: Bottom 5 + the 2 Homework modules
+    pyramid_modules = PyramidModule.select("id,name").where(id: [1,2,3,4,6,9,12]).order(:id)
 
 	  affiliations = Affiliation.joins(:user).select("affiliations.id, affiliations.user_id, users.email as user_email").where(deleted_at: nil).offset(offset).limit(limit)
 	  aux = 0
