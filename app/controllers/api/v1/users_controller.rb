@@ -21,14 +21,25 @@ module Api
         free_payment = SinglePayment.where(price: 0).first
         @user = User.new(user_params)
         @user.roles << :player
-        @user.single_payment_id = free_payment.id
-        if @user.save
 
-          free_payment.pyramid_modules.each do |pyramid_module|
-            if UnlockedPyramidModule.where(pyramid_module_id: pyramid_module.id).where(user_id: @user.id).empty? 
-              UnlockedPyramidModule.create(pyramid_module_id: pyramid_module.id, user_id: @user.id, has_restriction: 1)
-            else
-              UnlockedPyramidModule.where(pyramid_module_id: pyramid_module.id).where(user_id: @user.id).update(has_restriction: 1)
+        if !free_payment.nil?
+          @user.single_payment_id = free_payment.id
+        end
+        if @user.save
+          if free_payment.nil?
+            aux_pyramid_modules = PyramidModule.where(level: 1)
+            aux_pyramid_modules.each do |pyramid_module|
+              if UnlockedPyramidModule.where(pyramid_module_id: pyramid_module.id).where(user_id: resource.id).empty? 
+                UnlockedPyramidModule.create(pyramid_module_id: pyramid_module.id, user_id: resource.id, has_restriction: 1)
+              end
+            end
+          else
+            free_payment.pyramid_modules.each do |pyramid_module|
+              if UnlockedPyramidModule.where(pyramid_module_id: pyramid_module.id).where(user_id: @user.id).empty? 
+                UnlockedPyramidModule.create(pyramid_module_id: pyramid_module.id, user_id: @user.id, has_restriction: 1)
+              else
+                UnlockedPyramidModule.where(pyramid_module_id: pyramid_module.id).where(user_id: @user.id).update(has_restriction: 1)
+              end
             end
           end
 
