@@ -29,8 +29,10 @@ module Api
           if free_payment.nil?
             aux_pyramid_modules = PyramidModule.where(level: 1)
             aux_pyramid_modules.each do |pyramid_module|
-              if UnlockedPyramidModule.where(pyramid_module_id: pyramid_module.id).where(user_id: resource.id).empty? 
-                UnlockedPyramidModule.create(pyramid_module_id: pyramid_module.id, user_id: resource.id, has_restriction: 1)
+              if UnlockedPyramidModule.where(pyramid_module_id: pyramid_module.id).where(user_id: @user.id).empty? 
+                UnlockedPyramidModule.create(pyramid_module_id: pyramid_module.id, user_id: @user.id, has_restriction: 1)
+              else
+                UnlockedPyramidModule.where(pyramid_module_id: pyramid_module.id).where(user_id: @user.id).update(has_restriction: 1)
               end
             end
           else
