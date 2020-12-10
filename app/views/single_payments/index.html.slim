@@ -17,10 +17,10 @@
             .single-payment-label #{single_payment.special_label}
 
           - if @affiliateCode.nil? || @affiliateCode.discount == 0
-            .price $#{@prices[single_payment.id]}
+            .price $<span class="priceval">#{'%.2f' % @prices[single_payment.id]}</span>
           -else
-            .price.old-price $#{@oldPrices[single_payment.id]}
-            .price.price-discount $#{@prices[single_payment.id]}
+            .price.old-price $<span class="priceval">#{'%.2f' % @oldPrices[single_payment.id]}</span>
+            .price.price-discount $<span class="priceval">#{'%.2f' % @prices[single_payment.id]}</span>
 
           .name #{single_payment.name}
 
@@ -30,7 +30,7 @@
                 button.stripe-button-el disabled=true
                   span Purchased
             - else
-              = render 'plan_button', { button_label: "Buy Now", name: single_payment.name, payment_id: single_payment.id, price: @prices[single_payment.id], affiliate_code_id: (@affiliateCode.nil? ? "" : @affiliateCode.id) }
+              = render 'plan_button', { button_label: "Buy Now", name: single_payment.name, payment_id: single_payment.id, price: ('%.2f' % @prices[single_payment.id]), affiliate_code_id: (@affiliateCode.nil? ? "" : @affiliateCode.id) }
 
           .specifications 
             ul 

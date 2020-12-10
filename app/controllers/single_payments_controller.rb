@@ -133,7 +133,7 @@ class SinglePaymentsController < ApplicationController
     end
 
     rescue => e
-      flash[:error] = "Sorry, something went wrong. Please forward these error details to support@lilkickers.com.<br><br>Error: #{e}".html_safe
+      flash[:error] = "Sorry, something went wrong. Please forward these error details to appsupport@lilkickers.com.<br><br>Error: #{e}".html_safe
       redirect_to '/help'
 
   end
