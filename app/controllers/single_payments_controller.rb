@@ -93,12 +93,20 @@ class SinglePaymentsController < ApplicationController
       stripe_description = "#{single_payment.name} - Charge for #{current_user.email} with affiliate/discount code #{affiliateCode.code}"
     end
 
+    if current_user.stripe_customer_id.to_s.empty?
+      stripe_customer_response = Stripe::Customer.create(
+        email: current_user.email,
+        name: "#{current_user.first_name} #{current_user.last_name}"
+      )
+      current_user.update_column(:stripe_customer_id, stripe_customer_response.id)
+    end
+
     stripe_response = Stripe::Charge.create(
       amount: Integer(price * 100),
       currency: 'usd',
       description: stripe_description,
       receipt_email: current_user.email,
-      source: token,
+      source: token
     )
 
     current_user.update_column(:stripe_payment_id, stripe_response.id)
@@ -134,7 +142,7 @@ class SinglePaymentsController < ApplicationController
 
     rescue => e
       flash[:error] = "Sorry, something went wrong. Please forward these error details to appsupport@lilkickers.com.<br><br>Error: #{e}".html_safe
-      redirect_to '/help'
+      redirect_to '/single_payments'
 
   end
 

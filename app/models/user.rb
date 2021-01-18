@@ -205,6 +205,38 @@ class User < ApplicationRecord
     end
   end
 
+  def get_my_clubs_name
+    if self.clubs.length > 0
+      return self.clubs.map(&:name).join(', ')
+    else
+      return "-"
+    end
+  end
+
+  def get_my_teams_name
+    if self.teams.length > 0
+      return self.teams.map(&:name).join(', ')
+    else
+      return "-"
+    end
+  end
+
+  def get_my_stripe_plans
+    if self.archieved_user_payments.length > 0
+      return self.archieved_user_payments.map(&:payment_name).join(', ')
+    else
+      return "-"
+    end
+  end
+
+  def get_my_stripe_plan_prices
+    if self.archieved_user_payments.length > 0
+      return self.archieved_user_payments.map(&:payment_price).join(', ')
+    else
+      return "-"
+    end
+  end
+
   def get_single_payment
     SinglePayment.where(id: self.single_payment_id).first
   end
