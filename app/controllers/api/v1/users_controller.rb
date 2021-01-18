@@ -13,10 +13,10 @@ module Api
       end
 
       def show
-        current_user.intercom_stripe_plan = current_user.get_my_stripe_plans
-        current_user.intercom_stripe_plan_price = current_user.get_my_stripe_plan_prices
-        puts current_user.to_json
         analytics_track(current_user, 'Show User', { user_db_id: @user.id, showing_self: current_user.id == @user.id })
+        puts "TEST"
+        puts @user.to_json
+        puts "TEST"
         jsonapi_render json: @user
       end
 
