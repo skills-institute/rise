@@ -32,8 +32,8 @@ html[lang="en"]
       = render 'components/footer'
       = render 'css_overrides'
 
-    - # if Rails.env.production?
-    |
+    - if Rails.env.production?
+      |
         <!-- Google Tag Manager should come here -->
 
         <!-- START JS snippet for Intercom -->
