@@ -14,6 +14,9 @@ module Api
 
       def show
         analytics_track(current_user, 'Show User', { user_db_id: @user.id, showing_self: current_user.id == @user.id })
+        @user.stripe_plan = current_user.get_my_stripe_plans
+        @user.stripe_plan_price = current_user.get_my_stripe_plan_prices
+        puts @user.to_json
         jsonapi_render json: @user
       end
 
