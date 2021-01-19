@@ -29,7 +29,7 @@ module Api
                  :stripe_customer_id,
                  :my_stripe_plans,
                  :role_list,
-                 :highest_pyramid_level_achieved,
+                 :highest_pyramid_level_achieved
 
 
       has_many :archieved_user_payments
