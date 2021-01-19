@@ -17,7 +17,20 @@ module Api
                  :week_view,
                  :phase_attempts,
                  :teams,
-                 :archieved_user_payments
+                 :archieved_user_payments,
+                 :my_promo_codes,
+                 :my_clubs_name,
+                 :my_teams_name,
+                 :last_module_played,
+                 :last_phase_played,
+                 :my_stripe_plan_prices,
+                 :my_stripe_plan_discount_codes,
+                 :last_sign_in_at,
+                 :stripe_customer_id,
+                 :my_stripe_plans,
+                 :role_list,
+                 :highest_pyramid_level_achieved,
+
 
       has_many :archieved_user_payments
       has_many :confidence_ratings
