@@ -14,6 +14,7 @@ module Api
 
       def show
         analytics_track(current_user, 'Show User', { user_db_id: @user.id, showing_self: current_user.id == @user.id })
+        puts @user.to_json
         jsonapi_render json: @user
       end
 
