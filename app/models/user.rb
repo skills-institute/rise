@@ -205,36 +205,76 @@ class User < ApplicationRecord
     end
   end
 
-  def get_my_clubs_name
+  def my_promo_codes
+    my_promo_codes = "-"
     if self.clubs.length > 0
-      return self.clubs.map(&:name).join(', ')
-    else
-      return "-"
+      my_promo_codes = self.teams.map(&:code).join(', ')
     end
+    my_promo_codes
   end
 
-  def get_my_teams_name
+  def my_clubs_name
+    my_clubs_name = "-"
+    if self.clubs.length > 0
+      my_clubs_name = self.clubs.map(&:name).join(', ')
+    end
+    my_clubs_name
+  end
+
+  def my_teams_name
+    my_teams_name = "-"
     if self.teams.length > 0
-      return self.teams.map(&:name).join(', ')
-    else
-      return "-"
+      my_teams_name = self.teams.map(&:name).join(', ')
     end
+    my_teams_name
   end
 
-  def get_my_stripe_plans
-    if self.archieved_user_payments.length > 0
-      return self.archieved_user_payments.map(&:payment_name).join(', ')
-    else
-      return "-"
+  def last_phase_played
+    last_phase_played = "-"
+    if self.phase_attempts.length > 0
+      last_played_aux = self.phase_attempts.order(updated_at: :desc).limit(1).first
+      if !last_played_aux.phase.nil?
+        last_phase_played = last_played_aux.phase.name
+      end
     end
+    last_phase_played
   end
 
-  def get_my_stripe_plan_prices
-    if self.archieved_user_payments.length > 0
-      return self.archieved_user_payments.map(&:payment_price).join(', ')
-    else
-      return "-"
+  def last_module_played
+    last_module_played = "-"
+    if self.phase_attempts.length > 0
+      last_played_aux = self.phase_attempts.order(updated_at: :desc).limit(1).first
+      if !last_played_aux.phase.nil?
+        if !last_played_aux.phase.pyramid_module.nil?
+          last_module_played = last_played_aux.phase.pyramid_module.name
+        end
+      end
     end
+    last_module_played
+  end
+
+  def my_stripe_plans
+    my_stripe_plans = "-"
+    if self.archieved_user_payments.length > 0
+      my_stripe_plans = self.archieved_user_payments.map(&:payment_name).join(', ')
+    end
+    my_stripe_plans
+  end
+
+  def my_stripe_plan_prices
+    my_stripe_plan_prices = "-"
+    if self.archieved_user_payments.length > 0
+      my_stripe_plan_prices = self.archieved_user_payments.map(&:payment_price).join(', ')
+    end
+    my_stripe_plan_prices
+  end
+
+  def my_stripe_plan_discount_codes
+    my_stripe_plan_discount_codes = "-"
+    if self.archieved_user_payments.length > 0
+      my_stripe_plan_discount_codes = self.archieved_user_payments.map(&:discount_code).join(', ')
+    end
+    my_stripe_plan_discount_codes
   end
 
   def get_single_payment
@@ -279,6 +319,13 @@ class User < ApplicationRecord
         sub_exp_at: (subscription_expires_on.iso8601 rescue ''),
         day_streak: day_streak.to_s,
         skills_mastered: skills_mastered.to_s,
+        my_promo_codes: my_promo_codes.to_s,
+        my_clubs_name: my_clubs_name.to_s,
+        my_teams_name: my_teams_name.to_s,
+        last_module_played: last_module_played.to_s,
+        last_phase_played: last_phase_played.to_s,
+        my_stripe_plan_prices: my_stripe_plan_prices.to_s,
+        my_stripe_plan_discount_codes: my_stripe_plan_discount_codes.to_s,
         highest_pyramid_level: highest_pyramid_level_achieved.to_s,
         teams: teams.map(&:name).join(', '),
         clubs: clubs.map(&:name).join(', '),

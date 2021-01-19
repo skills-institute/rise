@@ -27,6 +27,12 @@ class SinglePaymentsController < ApplicationController
       end
     end
 
+
+      last_played_aux = current_user.phase_attempts.order(updated_at: :desc).limit(1).first
+      #if last_played_aux.phase.length > 0
+        #puts last_played_aux.phase.name
+      #end
+
     @single_payments = SinglePayment.where("price > 0")
     @specifications = {}
     @prices = {}
@@ -39,6 +45,9 @@ class SinglePaymentsController < ApplicationController
         @prices[single_payment.id] = single_payment.price
       else
         @prices[single_payment.id] = (@affiliateCode.discount_type == "percent" ? (single_payment.price / 100 * (100 - @affiliateCode.discount)) : (single_payment.price - @affiliateCode.discount)).round(2)
+        if @prices[single_payment.id] < 0
+          @prices[single_payment.id] = 0
+        end
       end
     end
   end
@@ -76,6 +85,7 @@ class SinglePaymentsController < ApplicationController
     price = single_payment.price
     auxAffiliateCode = AffiliateDiscountCode.where(id: affiliate_code_id)
     affiliateCode = {}
+    discountCodeString = ""
     stripe_description = "#{single_payment.name} - Charge for #{current_user.email}"
     user_ids = AffiliateCodePurchase.where(affiliate_discount_code_id: affiliate_code_id).distinct.pluck(:user_id)
 
@@ -89,6 +99,7 @@ class SinglePaymentsController < ApplicationController
     (auxAffiliateCode[0].end_date.blank? || (!auxAffiliateCode[0].end_date.blank? && Date.today <= auxAffiliateCode[0].end_date))
       affiliateCode = auxAffiliateCode[0]
       oldPrice = single_payment.price
+      discountCodeString = affiliateCode.code
       price = (affiliateCode[:discount_type] == "percent" ? (single_payment.price / 100 * (100 - affiliateCode.discount)) : (single_payment.price - affiliateCode.discount)).round(2)
       stripe_description = "#{single_payment.name} - Charge for #{current_user.email} with affiliate/discount code #{affiliateCode.code}"
     end
@@ -111,7 +122,7 @@ class SinglePaymentsController < ApplicationController
 
     current_user.update_column(:stripe_payment_id, stripe_response.id)
     current_user.update_column(:single_payment_id, payment_id)
-    ArchievedUserPayment.create(single_payment_id: single_payment.id, user_id: current_user.id, payment_name: single_payment.name, payment_price: single_payment.price, payment_stripe_id: stripe_response.id)
+    ArchievedUserPayment.create(single_payment_id: single_payment.id, user_id: current_user.id, payment_name: single_payment.name, payment_price: price, payment_stripe_id: stripe_response.id, discount_code: discountCodeString)
 
     if auxAffiliateCode.count > 0 && (user_ids.count < auxAffiliateCode[0].max_users || user_ids.include?(current_user.id))
       affiliate_discount_code_id = affiliate_code_id

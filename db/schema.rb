@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201120133658) do
+ActiveRecord::Schema.define(version: 20210119133156) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(version: 20201120133658) do
 
   create_table "archieved_user_payments", force: :cascade do |t|
     t.datetime "created_at", null: false
+    t.string "discount_code"
     t.string "payment_name"
     t.float "payment_price"
     t.string "payment_stripe_id"
@@ -253,7 +254,7 @@ ActiveRecord::Schema.define(version: 20201120133658) do
   create_table "single_payments", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.string "name"
-    t.float "price"
+    t.decimal "price", precision: 5, scale: 2
     t.integer "sort", default: 1
     t.string "special_label", default: ""
     t.text "specifications", default: ""
