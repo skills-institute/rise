@@ -1,6 +1,6 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'no-reply@athletefit.com',
-          return_path: 'info@athletefit.com'
+  default from: 'appsupport@lilkickers.com',
+          return_path: 'appsupport@lilkickers.com'
 
   layout 'mailer'
 
