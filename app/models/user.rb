@@ -253,6 +253,30 @@ class User < ApplicationRecord
     last_module_played
   end
 
+  def my_stripe_customer
+    my_stripe_customer = "-"
+    if !self.stripe_customer_id.to_s.empty?
+      my_stripe_customer = "#{self.first_name} #{self.last_name}"
+    end
+    my_stripe_customer
+  end
+
+  def my_stripe_customer_email
+    my_stripe_customer_email = "-"
+    if !self.stripe_customer_id.to_s.empty?
+      my_stripe_customer_email = self.email
+    end
+    my_stripe_customer_email
+  end
+
+  def my_stripe_customer_id
+    my_stripe_customer_id = "-"
+    if !self.stripe_customer_id.to_s.empty?
+      my_stripe_customer_id = self.stripe_customer_id
+    end
+    my_stripe_customer_id
+  end
+
   def my_stripe_plans
     my_stripe_plans = "-"
     if self.archieved_user_payments.length > 0
@@ -326,6 +350,9 @@ class User < ApplicationRecord
         last_phase_played: last_phase_played.to_s,
         my_stripe_plan_prices: my_stripe_plan_prices.to_s,
         my_stripe_plan_discount_codes: my_stripe_plan_discount_codes.to_s,
+        my_stripe_customer_id: my_stripe_customer_id.to_s,
+        my_stripe_customer_email: my_stripe_customer_email.to_s,
+        my_stripe_customer: my_stripe_customer.to_s,
         highest_pyramid_level: highest_pyramid_level_achieved.to_s,
         teams: teams.map(&:name).join(', '),
         clubs: clubs.map(&:name).join(', '),
